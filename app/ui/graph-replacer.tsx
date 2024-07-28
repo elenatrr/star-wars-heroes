@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export default function GraphReplacer() {
   return (
-    <div className="w-full bg-black h-full rounded overflow-hidden relative">
+    <div className="bg-black h-full rounded overflow-hidden relative">
       <Image
         src="/graph-replacer-bg.webp"
         width={500}

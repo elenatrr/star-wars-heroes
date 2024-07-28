@@ -17,13 +17,13 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
   }
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center items-center">
       <PaginationArrow
         direction="left"
         href={createPageURL(currentPage - 1)}
         isDisabled={currentPage <= 1}
       />
-
+      <span>Page {currentPage} of {totalPages}</span>
       <PaginationArrow
         direction="right"
         href={createPageURL(currentPage + 1)}
@@ -45,8 +45,8 @@ function PaginationArrow({
   const className = clsx(
     'flex h-10 w-10 items-center justify-center rounded-md border',
     {
-      'pointer-events-none text-gray-300': isDisabled,
-      'hover:bg-gray-100': !isDisabled,
+      'pointer-events-none opacity-50': isDisabled,
+      'hover:bg-opacity-50 hover:bg-gray-100': !isDisabled,
       'mr-2 md:mr-4': direction === 'left',
       'ml-2 md:ml-4': direction === 'right',
     },

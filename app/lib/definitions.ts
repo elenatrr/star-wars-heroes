@@ -1,5 +1,3 @@
-//  types can be generated automatically using an ORM such as Prisma
-
 export type Hero = {
   id: number;
   name: string;
