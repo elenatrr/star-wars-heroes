@@ -23,9 +23,10 @@ export default async function Home({
   const totalPages = Math.ceil(heroesData.count / 10)
 
   return (
-    <main className="container mx-auto p-4 flex flex-col min-h-screen">
+    <main className="container mx-auto p-4 flex flex-col min-h-screen font-sans">
       <h1 className={`font-starjedi text-3xl font-bold mb-8 whitespace-pre-line text-banana text-center`}>{`Star\nWars\nHeroes`}</h1>
-      <div className="flex-1 mb-6 font-sans">
+      <p className="mb-4 text-lg italic">Choose a hero to see their details:</p>
+      <div className="flex-1 mb-6">
         <div className="flex gap-4">
           <div className="w-1/4">
             <Suspense key={currentPage} fallback={<HeroesListSkeleton />}>
