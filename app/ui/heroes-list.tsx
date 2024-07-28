@@ -4,7 +4,7 @@ import HeroeItem from "./hero-item";
 export default async function HeroesList({ heroesArray, selectedHeroId }: { heroesArray: Hero[], selectedHeroId: number | null }) {
 
   if (!heroesArray || heroesArray.length === 0) {
-    return <div className="font-sans p-4 text-center text-rose-600">Failed to load data. Please try again later.</div>;
+    return <div className="font-sans p-4 text-center text-rose-600">Failed to load data.</div>;
   }
 
   return (

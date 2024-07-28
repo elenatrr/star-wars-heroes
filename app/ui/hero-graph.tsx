@@ -24,11 +24,11 @@ export default async function HeroGraph({ heroId }: { heroId: number }) {
     heroFilms = await fetchFilmsByHeroId(heroId);
   } catch (error) {
     console.error("Database Error:", error);
-    return <div className="font-sans p-4 text-center text-rose-600">Failed to load data. Please try again later.</div>;
+    return <div className="font-sans p-4 text-center text-rose-600">Failed to load data.</div>;
   }
 
   if (!hero || !heroFilms || !heroStarships) {
-    return <div className="font-sans p-4 text-center text-rose-600">Failed to load data. Please try again later.</div>;
+    return <div className="font-sans p-4 text-center text-rose-600">Failed to load data.</div>;
   }
 
   return (

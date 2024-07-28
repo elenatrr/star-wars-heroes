@@ -27,7 +27,7 @@ export default async function Home({
     heroesArray = heroesData.results
   } catch (error) {
     console.error("Database Error:", error);
-    return <div className="font-sans p-4 text-center text-rose-600">Failed to load data. Please try again later.</div>;
+    return <div className="font-sans p-4 text-center text-rose-600">Failed to load data.</div>;
   }
 
   return (
