@@ -13,6 +13,13 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        banana: "#FFE81F"
+      },
+      fontFamily: {
+        sans: ['var(--font-inter)'],
+        starjedi: ['var(--font-starjedi)'],
+      },
     },
   },
   plugins: [],
