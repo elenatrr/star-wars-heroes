@@ -3,7 +3,7 @@ import { fetchHeroes } from "./lib/data";
 import Pagination from "./ui/pagination";
 import HeroGraph from "./ui/hero-graph";
 import { Suspense } from "react";
-import { HeroGraphSkeleton } from "./ui/skeletons";
+import { HeroesListSkeleton, HeroGraphSkeleton } from "./ui/skeletons";
 import GraphReplacer from "./ui/graph-replacer";
 
 export default async function Home({
@@ -28,7 +28,9 @@ export default async function Home({
       <div className="flex-1 mb-6 font-sans">
         <div className="flex gap-4">
           <div className="w-1/4">
-            <HeroesList heroesArray={heroesArray} selectedHeroId={selectedHeroId}/>
+            <Suspense key={currentPage} fallback={<HeroesListSkeleton />}>
+              <HeroesList heroesArray={heroesArray} selectedHeroId={selectedHeroId} />
+            </Suspense>
           </div>
           <div className="w-3/4 flex-1 mb-2">
             {selectedHeroId ?
