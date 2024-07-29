@@ -34,4 +34,8 @@ body {
   .graph-image-height {
     max-height: 440px;
   }
+
+  .react-flow-height {
+    height: 400px;
+  }
 }

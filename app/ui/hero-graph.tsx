@@ -9,6 +9,8 @@ export default async function HeroGraph({ heroId }: { heroId: number }) {
   const heroStarships = await fetchStarshipsByHeroId(heroId);
 
   return (
-    <GraphNodes hero={hero} heroStarships={heroStarships} heroFilms={heroFilms} />
+    <div className="w-full flex-1 mb-2 react-flow-height md:h-full">
+      <GraphNodes hero={hero} heroStarships={heroStarships} heroFilms={heroFilms} />
+    </div>
   );
 }
