@@ -5,7 +5,6 @@ import HeroGraph from "./ui/hero-graph";
 import { Suspense } from "react";
 import { HeroesListSkeleton, HeroGraphSkeleton } from "./ui/skeletons";
 import GraphReplacer from "./ui/graph-replacer";
-import { Hero } from "./lib/definitions";
 
 export default async function Home({
   searchParams
@@ -18,17 +17,9 @@ export default async function Home({
   const currentPage = Number(searchParams?.page) || 1
   const selectedHeroId = Number(searchParams?.heroId) || null
 
-  let heroesArray: Hero[] = [];
-  let totalPages = 0;
-
-  try {
-    const heroesData = await fetchHeroes(currentPage)
-    totalPages = Math.ceil(heroesData.count / 10)
-    heroesArray = heroesData.results
-  } catch (error) {
-    console.error("Database Error:", error);
-    return <div className="font-sans p-4 text-center text-rose-600">Failed to load data.</div>;
-  }
+  const heroesData = await fetchHeroes(currentPage)
+  const totalPages = Math.ceil(heroesData.count / 10)
+  const heroesArray = heroesData.results
 
   return (
     <main className="container mx-auto p-4 flex flex-col min-h-screen font-sans">
