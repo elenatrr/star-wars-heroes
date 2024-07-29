@@ -1,3 +1,4 @@
+// This component replaces HeroGraph component if no hero was selected.
 import Image from "next/image"
 
 export default function GraphReplacer() {

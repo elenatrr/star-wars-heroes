@@ -1,3 +1,4 @@
+// This file contains API requests for fetching data.
 import axios from "axios";
 
 const starWarsAPI = axios.create({
