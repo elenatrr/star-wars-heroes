@@ -17,7 +17,7 @@ export function HeroGraphSkeleton() {
   );
 }
 
-export function HeroesListSkeleton() {
+export function HeroListSkeleton() {
   return (
     <div className="animate-pulse h-full skeleton-height">
       <div className="h-9 bg-gray-300 rounded w-full mb-2"></div>

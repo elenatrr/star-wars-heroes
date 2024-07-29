@@ -1,7 +1,7 @@
 import { Hero } from "../lib/definitions";
 import HeroeItem from "./hero-item";
 
-export default async function HeroesList({ heroesArray, selectedHeroId }: { heroesArray: Hero[], selectedHeroId: number | null }) {
+export default async function HeroList({ heroesArray, selectedHeroId }: { heroesArray: Hero[], selectedHeroId: number | null }) {
   return (
     <ul>
       {heroesArray.map((hero: Hero) => {
