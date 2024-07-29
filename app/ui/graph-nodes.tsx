@@ -1,8 +1,9 @@
+// This component displays all the information about the selected hero in the form of graph.
 'use client'
 
 import { ReactFlow, Controls, Background } from '@xyflow/react';
 import CustomNode from './node-types/custom-node';
-import { Film, Hero, HeroFilmsData, HeroStarshipsData, Starship } from '../lib/definitions';
+import { Film, GraphEdge, GraphNode, Hero, HeroFilmsData, HeroStarshipsData, Starship } from '../lib/definitions';
 
 export default function GraphNodes({
   hero,
@@ -13,23 +14,23 @@ export default function GraphNodes({
   heroStarships: HeroStarshipsData,
   heroFilms: HeroFilmsData
 }) {
-  const edges: { id: string, source: string, target: string, label?: string, type?: string }[] = [];
+  // Customized node with specific styles.
   const nodeTypes = { custom: CustomNode };
-  const nodes: {
-    id: string,
-    type: string,
-    data: { [key: string]: string },
-    position: { x: number, y: number },
-  }[] = [
-      {
-        id: hero.name,
-        type: 'custom',
-        data: { name: hero.name, height: hero.height, hair_color: hero.hair_color, gender: hero.gender },
-        position: { x: 250, y: 5 },
-      },
-    ];
+
+  // Initial nodes array.
+  const nodes: GraphNode[] = [{
+    id: hero.name,
+    type: 'custom',
+    data: { name: hero.name, height: hero.height, hair_color: hero.hair_color, gender: hero.gender },
+    position: { x: 250, y: 5 },
+  }];
+
+  // Initial edges empty array.
+  const edges: GraphEdge[] = [];
+
 
   heroFilms.results.forEach(async (film: Film, index: number) => {
+    // Push hero films into the nodes array.
     nodes.push({
       id: film.title,
       type: 'custom',
@@ -37,6 +38,7 @@ export default function GraphNodes({
       position: { x: 100 + index * 300, y: 300 },
     });
 
+    // Push "hero-film" links into the edges array.
     edges.push({
       id: `${hero.name}-${film.title}`,
       source: hero.name,
@@ -45,7 +47,11 @@ export default function GraphNodes({
     });
 
     heroStarships.results.forEach((starship: Starship, index: number) => {
+
+      // Check if the starship was presented in the film.
       if (starship.films.includes(film.id)) {
+
+        // Push hero starship into the nodes array.
         nodes.push({
           id: starship.name,
           type: 'custom',
@@ -53,6 +59,7 @@ export default function GraphNodes({
           position: { x: 100 + index * 300, y: 600 },
         });
 
+        // Push "film-starship" links into the edges array.
         edges.push({
           id: `${film.title}-${starship.name}`,
           source: film.title,

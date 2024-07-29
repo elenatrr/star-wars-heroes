@@ -1,3 +1,4 @@
+// This file contains type definitions for the data.
 export type Hero = {
   id: number;
   name: string;
@@ -62,12 +63,27 @@ export type HeroFilmsData = {
   count: string;
   next: string | null;
   previous: string | null;
-  results: Film[]
-}
+  results: Film[];
+};
 
 export type HeroStarshipsData = {
   count: string;
   next: string | null;
   previous: string | null;
-  results: Starship[]
-}
+  results: Starship[];
+};
+
+export type GraphNode = {
+  id: string;
+  type: string;
+  data: { [key: string]: string };
+  position: { x: number; y: number };
+};
+
+export type GraphEdge = {
+  id: string;
+  source: string;
+  target: string;
+  label?: string;
+  type?: string;
+};

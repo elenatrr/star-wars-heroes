@@ -11,7 +11,9 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
 
   const createPageURL = (pageNumber: number | string) => {
     const params = new URLSearchParams(searchParams)
+    // Change page number in URL params.
     params.set("page", pageNumber.toString())
+    // Reset hero ID.
     params.delete("heroId")
     return `${pathname}?${params.toString()}`
   }

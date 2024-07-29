@@ -14,9 +14,11 @@ export default async function Home({
     heroId?: string
   }
 }) {
+  // Retrieve searchParams to set the right page for pagination and display correct data for selected hero.
   const currentPage = Number(searchParams?.page) || 1
   const selectedHeroId = Number(searchParams?.heroId) || null
 
+  // Fetch heroes data to count the total pages and pass the array of heroes to the HeroList component.
   const heroesData = await fetchHeroes(currentPage)
   const totalPages = Math.ceil(heroesData.count / 10)
   const heroesArray = heroesData.results

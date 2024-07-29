@@ -1,3 +1,4 @@
+// This component serves as a catch-all for unexpected errors.
 'use client';
 
 import { useEffect } from 'react';
