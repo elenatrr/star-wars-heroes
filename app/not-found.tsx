@@ -1,4 +1,4 @@
-// This component handles specific errors, e. g. 404, and takes precedence over error.tsx.
+// This component handles specific errors, e. g. 404.
 import Link from 'next/link';
  
 export default function NotFound() {

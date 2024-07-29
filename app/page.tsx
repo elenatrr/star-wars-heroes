@@ -5,6 +5,8 @@ import HeroGraph from "./ui/hero-graph";
 import { Suspense } from "react";
 import { HeroListSkeleton, HeroGraphSkeleton } from "./ui/skeletons";
 import GraphReplacer from "./ui/graph-replacer";
+import { Hero } from "./lib/definitions";
+import ErrorPage from "./error-page";
 
 export default async function Home({
   searchParams
@@ -19,9 +21,17 @@ export default async function Home({
   const selectedHeroId = Number(searchParams?.heroId) || null
 
   // Fetch heroes data to count the total pages and pass the array of heroes to the HeroList component.
-  const heroesData = await fetchHeroes(currentPage)
-  const totalPages = Math.ceil(heroesData.count / 10)
-  const heroesArray = heroesData.results
+  let heroesArray: Hero[] = [];
+  let totalPages = 0;
+
+  try {
+    const heroesData = await fetchHeroes(currentPage)
+    totalPages = Math.ceil(heroesData.count / 10)
+    heroesArray = heroesData.results
+  } catch (error) {
+    console.error("Database Error:", error);
+    return <ErrorPage/>
+  }
 
   return (
     <main className="container mx-auto p-4 flex flex-col min-h-screen font-sans">
