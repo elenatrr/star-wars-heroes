@@ -26,15 +26,15 @@ export default async function Home({
   return (
     <main className="container mx-auto p-4 flex flex-col min-h-screen font-sans">
       <h1 className={`font-starjedi text-3xl font-bold mb-8 whitespace-pre-line text-banana text-center`}>{`Star\nWars\nHeroes`}</h1>
-      <p className="mb-4 text-lg italic">Choose a hero to see their details:</p>
+      <p className="mb-4 text-lg italic text-center md:text-left">Choose a hero to see their details:</p>
       <div className="flex-1 mb-6">
-        <div className="flex gap-4">
-          <div className="w-1/4">
+        <div className="flex gap-4 flex-col md:flex-row">
+          <div className="md:w-1/4 w-full">
             <Suspense key={currentPage} fallback={<HeroListSkeleton />}>
               <HeroList heroesArray={heroesArray} selectedHeroId={selectedHeroId} />
             </Suspense>
           </div>
-          <div className="w-3/4 flex-1 mb-2">
+          <div className="md:w-3/4 w-full flex-1 mb-2">
             {selectedHeroId ?
               <Suspense key={currentPage} fallback={<HeroGraphSkeleton />}>
                 <HeroGraph heroId={selectedHeroId} />

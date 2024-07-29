@@ -19,17 +19,17 @@ export function HeroGraphSkeleton() {
 
 export function HeroListSkeleton() {
   return (
-    <div className="animate-pulse h-full skeleton-height">
-      <div className="h-9 bg-gray-300 rounded w-full mb-2"></div>
-      <div className="h-9 bg-gray-300 rounded w-full mb-2"></div>
-      <div className="h-9 bg-gray-300 rounded w-full mb-2"></div>
-      <div className="h-9 bg-gray-300 rounded w-full mb-2"></div>
-      <div className="h-9 bg-gray-300 rounded w-full mb-2"></div>
-      <div className="h-9 bg-gray-300 rounded w-full mb-2"></div>
-      <div className="h-9 bg-gray-300 rounded w-full mb-2"></div>
-      <div className="h-9 bg-gray-300 rounded w-full mb-2"></div>
-      <div className="h-9 bg-gray-300 rounded w-full mb-2"></div>
-      <div className="h-9 bg-gray-300 rounded w-full mb-2"></div>
+    <div className="animate-pulse h-full skeleton-height flex flex-wrap md:flex-col gap-2 justify-center">
+      <div className="h-9 bg-gray-300 rounded-full w-28 md:w-full mb-2"></div>
+      <div className="h-9 bg-gray-300 rounded-full w-32 md:w-full mb-2"></div>
+      <div className="h-9 bg-gray-300 rounded-full w-36 md:w-full mb-2"></div>
+      <div className="h-9 bg-gray-300 rounded-full w-40 md:w-full mb-2"></div>
+      <div className="h-9 bg-gray-300 rounded-full w-36 md:w-full mb-2"></div>
+      <div className="h-9 bg-gray-300 rounded-full w-32 md:w-full mb-2"></div>
+      <div className="h-9 bg-gray-300 rounded-full w-28 md:w-full mb-2"></div>
+      <div className="h-9 bg-gray-300 rounded-full w-32 md:w-full mb-2"></div>
+      <div className="h-9 bg-gray-300 rounded-full w-28 md:w-full mb-2"></div>
+      <div className="h-9 bg-gray-300 rounded-full w-32 md:w-full mb-2"></div>
     </div>
   )
 }
